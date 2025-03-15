@@ -43,6 +43,16 @@ module OmniAuth
         @raw_info ||= {}
       end
 
+      info do
+        {
+          id: me['viewer']['id'],
+          name: me['viewer']['name'],
+          email: me['viewer']['email'],
+          organization_id: me['organization']['id'],
+          organization_name: me['organization']['name']
+        }
+      end
+
       def me
         @me ||= begin
           http = GraphQL::Client::HTTP.new(options.client_options.site) do |obj|

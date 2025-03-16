@@ -29,7 +29,9 @@ module OmniAuth
               params[v.to_sym] = request.params[v]
             end
           end
-          params[:actor] = options[:actor]
+          %w[actor prompt].each do |v|
+            params[v.to_sym] = options[v] if options[v]
+          end
         end
       end
 

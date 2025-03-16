@@ -35,7 +35,7 @@ module OmniAuth
         end
       end
 
-      uid { me['viewer']['id'] }
+      uid { me['viewer']['email'] }
 
       extra do
         { raw_info: raw_info, me: me['viewer'], organization: me['organization'], actor: options[:actor] }
